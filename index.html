@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beth &amp; Ficus's wedding</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="wedding.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <!-- Google Maps API crap -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCn3v-7i6edYNMuRnhdPPlYzs-M_ffgPQ0&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var alamoSq = new google.maps.LatLng(37.776384, -122.434709);
+        var myOptions = {
+          center: alamoSq,
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        var marker = new google.maps.Marker({
+          position: alamoSq,
+          title: "Alamo Square Park"
+        });
+        marker.setMap(map);
+      }
+    </script>
+
+  </head>
+  
+  <body onload="initialize()">
+    <div class="container-fluid">
+      
+      <!-- sidebar -->
+      <div class="sidebar">
+        <div class="well">
+          <h5>The wedding of</h5>
+          <h1>
+            <a class="quiet" href="https://plus.google.com/115324599791722371866/">Beth</a>
+            &amp;
+            <a class="quiet" href="https://plus.google.com/108397689869527884611/">Ficus</a>
+          </h1>
+          <h4>
+            May 4, 2012<br>
+            2:30 PM<br>
+            <a href="http://g.co/maps/edy84">Alamo Square</a>
+          </h4>
+          <!-- <br>
+          <p>
+            <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding&dates=20120504T213000Z/20120504T233000Z&details=&location=Alamo%20Square%20Park%2C%20San%20Francisco%2C%20CA&trp=false&sprop=http%3A%2F%2Fwedding.bethandfic.us%2F&sprop=name:Beth%20%26%20Ficus's%20wedding" target="_blank"><img src="http://www.google.com/calendar/images/ext/gc_button6.gif" alt="0" border="0"></a>
+          </p> -->
+        </div>
+      </div>
+      
+      <!-- main content area -->
+      <div class="content well">
+        <div class="row">
+          <div class="span8">
+            <p>
+              We will be having a small wedding ceremony on Friday, May 4, 2012 in
+              <a href="http://en.wikipedia.org/wiki/Alamo_Square">Alamo Square</a>,
+              a block away from our apartment in San Francisco. The ceremony will
+              start at 2:30pm.
+            </p>
+            <p>
+              There will be a family dinner afterward at Green Chile Kitchen (?), a
+              few blocks away at McAllister &amp; Baker.
+            </p>
+            <input type="submit" class="btn large primary" value="RSVP" />
+          </div>
+          <div id="map_canvas" class="span6" style="width: 340px; height: 340px">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

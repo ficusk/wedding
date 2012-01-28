@@ -1,0 +1,24 @@
+/* todo: make sidebar full height with some kind of bg color */
+
+.sidebar h1,h2,h3,h4,h5 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+h4.sidebar {
+  line-height: 24px;
+}
+
+a.quiet {
+  color: #404040;
+  text-decoration: none;
+}
+
+.sidebar p {
+  color: #ada;
+}
+
+.content.well {
+  background: white;
+  border: none;
+}
