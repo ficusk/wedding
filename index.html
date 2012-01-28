@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="js/jquery.ui.map.full.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap-modal.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(function() {
         var alamoSq = new google.maps.LatLng(37.776384, -122.434709);
@@ -55,9 +56,22 @@
               There will be a family dinner afterward at Green Chile Kitchen (?), a
               few blocks away at McAllister &amp; Baker.
             </p>
-            <input type="submit" class="btn large primary" value="RSVP" />
+            <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn large primary">RSVP</button>
           </div>
           <div id="map_canvas" class="span6" style="width: 340px; height: 340px">
+          </div>
+        </div>
+        <div id="modal-from-dom" class="modal hide fade">
+            <div class="modal-header">
+              <a href="#" class="close">&times;</a>
+              <h3>RSVP</h3>
+            </div>
+            <div class="modal-body">
+              <p>Please enter your email and whatnot here.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn primary">Submit</a>
+            </div>
           </div>
         </div>
       </div>
