@@ -20,9 +20,11 @@
 
         $('#alamo').click(function() {
           $('#map_canvas').gmap('get', 'map').panTo(alamo);
+          return false;
         });
         $('#minna').click(function() {
           $('#map_canvas').gmap('get', 'map').panTo(minna);
+          return false;
         });
         
         init_form();
@@ -54,65 +56,64 @@
         </div><!--/sidebar-->
       
         <div class="span10 well main-block"><!--main-->
-          <div class="row">
-            <h1>Our wedding</h1>
+          <h1>Our wedding</h1>
+          <p>
+            A small ceremony on Friday, May 4, 2012 in
+            <a href="http://en.wikipedia.org/wiki/Alamo_Square">Alamo Square Park</a>,
+            a block away from our apartment in San Francisco. The ceremony will be held
+            toward the southeast corner of the park and will start at 2:30pm, rain or shine.
+          </p>
+          <p>
+            We are not obtaining a permit for use of the park, a cake, folding chairs,
+            ushers, or any of the usual trappings. It's going to be an informal family
+            gathering, but all are welcome to attend.
+          </p>
+          <p>
+            Afterward, we'll head a few blocks over to
+            <a href="http://greenchilekitchen.com/">Green Chile Kitchen</a>
+            at McAllister &amp; Baker for snacks, drinks, and chairs.
+          </p>
+          <p>
+            In lieu of the traditional reception, we will be holding an adults-only (21+)
+            <a href="#" rel="popover" title="No entry without costume.">costume party</a>
+            later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
+            after which the venue will open to the public with dance music.
+            <script>
+              $(function () {
+                $("a[rel=popover]")
+                  .popover({
+                    offset: 10,
+                    html: true,
+                    placement: 'below',
+                    content: function() { return '<img src="static/dogcostume.jpg" width="250px">' }
+                  })
+                  .click(function(e) {
+                    e.preventDefault()
+                  })
+              })
+            </script>
+          </p>
+          <p>
+            Please, <b>no gifts</b>. Seriously! We already have more Crate &amp; Barrel porcelain popcorn
+            buckets for a fun movie night at home than we know what to do with.
+          </p>
+          <blockquote>
             <p>
-              A small ceremony on Friday, May 4, 2012 in
-              <a href="http://en.wikipedia.org/wiki/Alamo_Square">Alamo Square Park</a>,
-              a block away from our apartment in San Francisco. The ceremony will be held
-              toward the southeast corner of the park and will start at 2:30pm, rain or shine.
+              We know Friday afternoon isn't the most convenient time. Please come to the park if you
+              can make it, but the celebration is the most important thing to us. We hope all of you can make
+              it to the party. <u><i>In costume</i></u>.
             </p>
-            <p>
-              We are not obtaining a permit for use of the park, a cake, folding chairs,
-              ushers, or any of the usual trappings. It's going to be an informal family
-              gathering, but all are welcome to attend.
-            </p>
-            <p>
-              Afterward, we'll head a few blocks over to
-              <a href="http://greenchilekitchen.com/">Green Chile Kitchen</a>
-              at McAllister &amp; Baker for snacks, drinks, and chairs.
-            </p>
-            <p>
-              In lieu of the traditional reception, we will be holding an adults-only (21+)
-              <a href="#" rel="popover" title="No entry without costume.">costume party</a>
-              later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
-              after which the venue will open to the public with dance music.
-              <script>
-                $(function () {
-                  $("a[rel=popover]")
-                    .popover({
-                      offset: 10,
-                      html: true,
-                      placement: 'below',
-                      content: function() { return '<img src="static/dogcostume.jpg" width="250px">' }
-                    })
-                    .click(function(e) {
-                      e.preventDefault()
-                    })
-                })
-              </script>
-            </p>
-            <p>
-              Please, no gifts. Seriously! We already have more Crate &amp; Barrel porcelain popcorn buckets for
-              a fun movie night at home than we know what to do with.
-            </p>
-          </div><!--/row-->
-          <div class="row">
-            <div class="span10">
-              <a href="#" id="alamo">Alamo Square</a>
-              |
-              <a href="#" id="minna">111 Minna</a>
-            </div>
-          </div><!--/row-->
-
-          <div class="row"><!-- map row -->
-            <div id="map_canvas" class="span10" style="width: 340px; height: 340px"></div>
+            <small>Beth &amp Ficus</small>
+          </blockquote>
+          <div>
+            <a href="#" id="alamo">Alamo Square</a>
+            |
+            <a href="#" id="minna">111 Minna</a>
           </div>
-      </div><!--/main-->
 
-      
-
-    </div><!--/row-->
+          <div id="map_canvas" style="width: 340px; height: 340px"></div>
+        </div><!--/main-->
+      </div><!--/row-->
     </div><!--/container-->
     
     <!-- Modal RSVP dialog -->
