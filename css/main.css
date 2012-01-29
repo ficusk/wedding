@@ -2,6 +2,7 @@
 
 .sidebar h1,h2,h3,h4,h5 {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -10,7 +11,7 @@ h4.sidebar {
 }
 
 a.quiet {
-  color: #404040;
+  color: #bb4040;
   text-decoration: none;
 }
 
