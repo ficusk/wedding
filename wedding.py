@@ -1,6 +1,8 @@
 import cgi
+import datetime
 import logging
 import os
+import time
 
 from operator import attrgetter
 
@@ -31,6 +33,33 @@ class Rsvp(webapp.RequestHandler):
     entry.guests = int(self.request.get('guests'))
     entry.put()
 
+# copied from GAE docs
+class Pacific_tzinfo(datetime.tzinfo):
+  """Implementation of the Pacific timezone."""
+  def utcoffset(self, dt):
+    return datetime.timedelta(hours=-8) + self.dst(dt)
+
+  def _FirstSunday(self, dt):
+    """First Sunday on or after dt."""
+    return dt + datetime.timedelta(days=(6-dt.weekday()))
+
+  def dst(self, dt):
+    # 2 am on the second Sunday in March
+    dst_start = self._FirstSunday(datetime.datetime(dt.year, 3, 8, 2))
+    # 1 am on the first Sunday in November
+    dst_end = self._FirstSunday(datetime.datetime(dt.year, 11, 1, 1))
+
+    if dst_start <= dt.replace(tzinfo=None) < dst_end:
+      return datetime.timedelta(hours=1)
+    else:
+      return datetime.timedelta(hours=0)
+  def tzname(self, dt):
+    if self.dst(dt) == datetime.timedelta(hours=0):
+      return "PST"
+    else:
+      return "PDT"
+
+
 def get_annotated_rsvps():
   # fetch all records, sorted by descending submit time
   rsvp_query = RsvpEntry.all().order('-submit_time')
@@ -38,11 +67,15 @@ def get_annotated_rsvps():
   # collate by email
   all_rsvps = sorted(all_rsvps, key=attrgetter('email'))
 
-  # mark all but first entry with given email as "old"
   seen_email = {}
+  pacific_time = Pacific_tzinfo()
   for rsvp in all_rsvps:
+    # mark all but first entry with given email as "old"
     rsvp.old = seen_email.has_key(rsvp.email)
     seen_email[rsvp.email] = True
+    
+    # converted stored UTC time to Pacific
+    rsvp.submit_time = datetime.datetime.fromtimestamp(time.mktime(rsvp.submit_time.timetuple()), pacific_time)
 
   return all_rsvps
   

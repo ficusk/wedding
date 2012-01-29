@@ -1,7 +1,1 @@
-Build admin handler
-- Show responses
- - group by duplicate email, highlight
-- Download csv export of all rows
-
-
-
+Nothing AFAIK!
