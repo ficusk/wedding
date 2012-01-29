@@ -1,4 +1,3 @@
-No gifts
 Fill out all lorem ipsum / response state text
 
 Build admin handler
