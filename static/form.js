@@ -1,16 +1,18 @@
 /* Form validation and submission stuff. */
 
 function init_form() {
-  $('.submit').click(handle_form_submit);
-
-  // Reinit everything just to be sure whenever the modal is shown.
+  // Reset the form whenever the modal is shown.
   $('#modal-from-dom').bind('show', function() {
-    init_form();
+    reset_form();
   });
+
+  $('.submit').click(handle_form_submit);
   $('.dismiss').click(function() {
     $('#modal-from-dom').modal('hide');
   });
-  
+}
+
+function reset_form() {
   $('.footer-section').hide();
   $('#submit_pre').show();
 }

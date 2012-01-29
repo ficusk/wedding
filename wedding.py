@@ -18,7 +18,6 @@ class RsvpEntry(db.Model):
   which = db.StringProperty()
   guests = db.IntegerProperty()
   submit_time = db.DateTimeProperty(auto_now=True)
-  pass
 
 class Rsvp(webapp.RequestHandler):
   def post(self):
