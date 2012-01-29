@@ -26,6 +26,9 @@ function handle_form_submit() {
   var email = $('input#email').val();
   var which = $('select#which').val();
   var guests = $('select#guests').val();
+  if (which == "no") {
+    guests = "0";
+  }
 
   if (!validate_form(name, email, guests)) {
     return false;
@@ -42,7 +45,7 @@ function handle_form_submit() {
     data: formData,
     success: function() {
       $('.footer-section').hide();
-      if ($('select#guests').val() == "0") {
+      if (guests == "0") {
         $('#submit_success_no').show();
       } else {
         $('#submit_success_yes').show();
