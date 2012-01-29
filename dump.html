@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>All RSVPs</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="static/dump.css">
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span16">
+          <h1>All RSVPs</h1>
+          <table>
+            <tr>
+              <td>Name</td>
+              <td>Email</td>
+              <td>Which</td>
+              <td>Guests</td>
+              <td>Reply time</td>
+            </tr>
+            {% for rsvp in all_rsvps %}
+              {% if rsvp.old %}
+                <tr class="old">
+              {% else %}
+                <tr>
+              {% endif %}
+                <td>{{ rsvp.name }}</td>
+                <td>{{ rsvp.email }}</td>
+                <td>{{ rsvp.which }}</td>
+                <td>{{ rsvp.guests }}</td>
+                <td>{{ rsvp.submit_time }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+          
+          <p>
+            {{ total }} guests, {{ total_ceremony }} ceremony, {{ total_party }} party
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
