@@ -11,10 +11,8 @@ function init_form() {
     $('#modal-from-dom').modal('hide');
   });
   
+  $('.footer-section').hide();
   $('#submit_pre').show();
-  $('#submit_success_yes').hide();
-  $('#submit_success_no').hide();
-  $('#submit_error').hide();
 }
 
 function handle_form_submit() {
@@ -33,21 +31,15 @@ function handle_form_submit() {
     url: "/rsvp",
     data: formData,
     success: function() {
-      $('#submit_pre').hide();
-      $('#submit_error').hide();
-
+      $('.footer-section').hide();
       if ($('select#guests').val() == "0") {
-        $('#submit_success_yes').hide();
         $('#submit_success_no').show();
       } else {
         $('#submit_success_yes').show();
-        $('#submit_success_no').hide();
       }
     },
     error: function() {
-      $('#submit_pre').hide();
-      $('#submit_success_yes').hide();
-      $('#submit_success_no').hide();
+      $('.footer-section').hide();
       $('#submit_error').show();
     },
   });
