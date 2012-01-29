@@ -1,5 +1,3 @@
-Fill out all lorem ipsum / response state text
-
 Build admin handler
 - Show responses
  - group by duplicate email, highlight
