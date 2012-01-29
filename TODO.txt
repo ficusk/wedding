@@ -1,27 +1,11 @@
-Write basic form
-Form handler
-- Capture name, +1, email and write to datastore
-- Hidden fields: submit time
+Add submit time to datastore
+Remove error helper text; just red
 
-Admin handler
+Build admin handler
 - Show responses
  - group by duplicate email, highlight
 - Download csv export of all rows
-Style page
-- css
-- images: bg, form box, yes/no buttons, map
 
------
-
-Form:
-Name
-Checkbox +1?
-On confirmation, also auto-RSVP to party? "You've been confirmed for the party on May 5, 8pm <link>"
-
-Location / time info section
-
-Link to party page
-
------
+Party page
 
 
