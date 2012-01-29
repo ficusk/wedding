@@ -6,6 +6,8 @@
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="static/jquery.ui.map.full.min.js" type="text/javascript"></script>
     <script src="static/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="static/bootstrap-twipsy.js" type="text/javascript"></script>
+    <script src="static/bootstrap-popover.js" type="text/javascript"></script>
     <script src="static/form.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(function() {
@@ -38,6 +40,7 @@
             2:30 PM<br>
             <a href="http://g.co/maps/edy84">Alamo Square</a>
           </h4>
+          <h5>San Francisco, CA</h5>
           <!-- <br>
           <p>
             <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding&dates=20120504T213000Z/20120504T233000Z&details=&location=Alamo%20Square%20Park%2C%20San%20Francisco%2C%20CA&trp=false&sprop=http%3A%2F%2Fwedding.bethandfic.us%2F&sprop=name:Beth%20%26%20Ficus's%20wedding" target="_blank"><img src="http://www.google.com/calendar/images/ext/gc_button6.gif" alt="0" border="0"></a>
@@ -51,13 +54,40 @@
           <div class="span8">
             <p>
               We will be having a small wedding ceremony on Friday, May 4, 2012 in
-              <a href="http://en.wikipedia.org/wiki/Alamo_Square">Alamo Square</a>,
-              a block away from our apartment in San Francisco. The ceremony will
-              start at 2:30pm.
+              <a href="http://en.wikipedia.org/wiki/Alamo_Square">Alamo Square Park</a>,
+              a block away from our apartment in San Francisco. The ceremony will be held
+              toward the southeast corner of the park and will start at 2:30pm, rain or shine.
             </p>
             <p>
-              There will be a family dinner afterward at Green Chile Kitchen (?), a
-              few blocks away at McAllister &amp; Baker.
+              We are not obtaining permits for use of the park, a cake, folding chairs,
+              ushers, or any of the usual trappings. It's just going to be an informal
+              gathering, and all are welcome to attend. Please be on time. We aren't going
+              to wait.
+            </p>
+            <p>
+              Afterward, we'll head over to
+              <a href="http://greenchilekitchen.com/">Green Chile Kitchen</a>, a
+              few blocks away at McAllister &amp; Baker for snacks, drinks, and chairs.
+            </p>
+            <p>
+              In lieu of the traditional reception, we will be holding a
+              <a href="#" rel="popover" title="No entry without costume.">costume</a> party
+              later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
+              after which the venue will open to the public with dance music.
+              <script>
+                $(function () {
+                  $("a[rel=popover]")
+                    .popover({
+                      offset: 10,
+                      html: true,
+                      placement: 'below',
+                      content: function() { return '<img src="static/dogcostume.jpg" width="250px">' }
+                    })
+                    .click(function(e) {
+                      e.preventDefault()
+                    })
+                })
+              </script>
             </p>
             <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn large primary">RSVP</button>
           </div>
