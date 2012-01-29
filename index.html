@@ -87,14 +87,15 @@
                 </div>
               </div>
               <div class="clearfix">
-                <label for="guests">Guests</label>
+                <label for="guests">Attending?</label>
                 <div class="input">
                   <select name="guests" id="guests">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="0">Sorry, I can't attend</option>
+                    <option value="1" selected>Yes, by myself</option>
+                    <option value="2">Yes, with one guest</option>
+                    <option value="3">Yes, with two guests</option>
+                    <option value="4">Yes, with three guests</option>
+                    <option value="5">Yes, with four guests</option>
                   </select>
                 </div>
               </div>
@@ -107,7 +108,7 @@
           </div>
           <div id="submit_success">
             <p>
-              <b>Your RSVP has been recorded.</b> See you there.
+              <b>Your RSVP has been recorded.</b>
             </p>
             <button id="done_button" class="btn primary">Done</button>
           </div>
