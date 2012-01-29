@@ -12,9 +12,10 @@
     <script type="text/javascript">
       $(function() {
         var alamo = new google.maps.LatLng(37.776384, -122.434709);
+        var ceremony = new google.maps.LatLng(37.776060, -122.433760);
         var minna = new google.maps.LatLng(37.78743,	-122.39938);
         $('#map_canvas').gmap({center: alamo, zoom: 16});
-        $('#map_canvas').gmap('addMarker', {position: '37.776060, -122.433760'});
+        $('#map_canvas').gmap('addMarker', {position: ceremony});
         $('#map_canvas').gmap('addMarker', {position: minna});
 
         $('#alamo').click(function() {
@@ -78,7 +79,7 @@
               at McAllister &amp; Baker for snacks, drinks, and chairs.
             </p>
             <p>
-              In lieu of the traditional reception, we will be holding a
+              In lieu of the traditional reception, we will be holding an adults-only (21+)
               <a href="#" rel="popover" title="No entry without costume.">costume party</a>
               later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
               after which the venue will open to the public with dance music.
