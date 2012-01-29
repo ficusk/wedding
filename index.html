@@ -6,10 +6,12 @@
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="js/jquery.ui.map.full.min.js" type="text/javascript"></script>
     <script src="js/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="js/form.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(function() {
         var alamoSq = new google.maps.LatLng(37.776384, -122.434709);
         $('#map_canvas').gmap({center: alamoSq, zoom: 14});
+        init_form();
       })
     </script>
 
@@ -42,7 +44,7 @@
         </div>
       </div>
       
-      <!-- main content area -->
+      <!-- Main content area -->
       <div class="content well">
         <div class="row">
           <div class="span8">
@@ -61,18 +63,48 @@
           <div id="map_canvas" class="span6" style="width: 340px; height: 340px">
           </div>
         </div>
-        <div id="modal-from-dom" class="modal hide fade">
-            <div class="modal-header">
-              <a href="#" class="close">&times;</a>
-              <h3>RSVP</h3>
-            </div>
-            <div class="modal-body">
-              <p>Please enter your email and whatnot here.</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#" class="btn primary">Submit</a>
-            </div>
-          </div>
+      </div>
+
+      <!-- Modal RSVP dialog -->
+      <div id="modal-from-dom" class="modal hide fade">
+        <div class="modal-header">
+          <a href="#" class="close">&times;</a>
+          <h3>RSVP</h3>
+        </div>
+        <div class="modal-body">
+          <form>
+            <fieldset>
+              <div class="clearfix">
+                <label for="name">Name</label>
+                <div class="input">
+                  <input class="xlarge" id="name" name="name" size="30" type="text">
+                  <span class="help-inline" id="name_error"></span>
+                </div>
+              </div>
+              <div class="clearfix">
+                <label for="email">Email</label>
+                <div class="input">
+                  <input class="xlarge" id="email" name="email" size="30" type="text">
+                  <span class="help-inline" id="email_error"></span>
+                </div>
+              </div>
+              <div class="clearfix">
+                <label for="guests">Guests</label>
+                <div class="input">
+                  <select name="guests" id="guests">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="button" class="btn primary">Submit</a>
         </div>
       </div>
       
