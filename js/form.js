@@ -1,19 +1,19 @@
 /* Form validation and submission stuff. */
 
 function init_form() {
-  $('#button').click(handle_form_submit);
-  $('#try_again_button').click(handle_form_submit);
+  $('.submit').click(handle_form_submit);
 
   // Reinit everything just to be sure whenever the modal is shown.
   $('#modal-from-dom').bind('show', function() {
     init_form();
   });
-  $('#done_button').click(function() {
+  $('.dismiss').click(function() {
     $('#modal-from-dom').modal('hide');
   });
   
   $('#submit_pre').show();
-  $('#submit_success').hide();
+  $('#submit_success_yes').hide();
+  $('#submit_success_no').hide();
   $('#submit_error').hide();
 }
 
@@ -34,12 +34,20 @@ function handle_form_submit() {
     data: formData,
     success: function() {
       $('#submit_pre').hide();
-      $('#submit_success').show();
       $('#submit_error').hide();
+
+      if ($('select#guests').val() == "0") {
+        $('#submit_success_yes').hide();
+        $('#submit_success_no').show();
+      } else {
+        $('#submit_success_yes').show();
+        $('#submit_success_no').hide();
+      }
     },
     error: function() {
       $('#submit_pre').hide();
-      $('#submit_success').hide();
+      $('#submit_success_yes').hide();
+      $('#submit_success_no').hide();
       $('#submit_error').show();
     },
   });
