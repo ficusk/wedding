@@ -7,7 +7,7 @@ function init_form() {
 function handle_form_submit() {
   var name = $('input#name').val();
   var email = $('input#email').val();
-  var guests = $('input#guests').val();
+  var guests = $('select#guests').val();
   
   if (!validate_form(name, email, guests)) {
     return false;
