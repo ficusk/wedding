@@ -31,22 +31,33 @@ class Rsvp(webapp.RequestHandler):
     entry.guests = int(self.request.get('guests'))
     entry.put()
 
+def get_annotated_rsvps():
+  # fetch all records, sorted by descending submit time
+  rsvp_query = RsvpEntry.all().order('-submit_time')
+  all_rsvps = [r for r in rsvp_query]
+  # collate by email
+  all_rsvps = sorted(all_rsvps, key=attrgetter('email'))
+
+  # mark all but first entry with given email as "old"
+  seen_email = {}
+  for rsvp in all_rsvps:
+    rsvp.old = seen_email.has_key(rsvp.email)
+    seen_email[rsvp.email] = True
+
+  return all_rsvps
+  
 class Dump(webapp.RequestHandler):
   def get(self):
     path = os.path.join(os.path.dirname(__file__), 'dump.html')
-    rsvp_query = RsvpEntry.all().order('-submit_time')
-    all_rsvps = [r for r in rsvp_query]
-    all_rsvps = sorted(all_rsvps, key=attrgetter('email'))
+    all_rsvps = get_annotated_rsvps()
 
-    seen_email = {}
+    # count up totals
     total = 0
     total_party = 0
     total_ceremony = 0
     
     for rsvp in all_rsvps:
-      rsvp.old = seen_email.has_key(rsvp.email)
-      seen_email[rsvp.email] = True
-
+      # don't count duplicate by email
       if rsvp.old:
         continue
         
@@ -59,10 +70,6 @@ class Dump(webapp.RequestHandler):
         total_party += rsvp.guests
         total_ceremony += rsvp.guests
       
-    # self.response.out.write('<html><body>How about:<pre>')
-    # for rsvp in all_rsvps:
-    #   self.response.out.write("%s (%s): %s - %d / %s<br>" % (rsvp.email, rsvp.name, rsvp.which, rsvp.guests, rsvp.submit_time))
-    # self.response.out.write('</pre></body></html>')
     template_values = {
       'all_rsvps': all_rsvps,
       'total': total,
@@ -71,10 +78,25 @@ class Dump(webapp.RequestHandler):
     }
     self.response.out.write(template.render(path, template_values))
 
+class DumpCsv(webapp.RequestHandler):
+  def get(self):
+    self.response.headers['Content-Type'] = 'text/csv'
+    self.response.headers['Content-disposition'] = 'attachment; filename=rsvp.csv'
+    all_rsvps = get_annotated_rsvps()
+    self.response.out.write('Name,Email,Which,Guests,Reply time\n')
+    for rsvp in all_rsvps:
+      guests = rsvp.guests
+      if rsvp.old:
+        guests = 0
+      csv_row = '%s,%s,%s,%d,%s\n' % (rsvp.name, rsvp.email, rsvp.which, guests, rsvp.submit_time)
+      self.response.out.write(csv_row)
+
+
 application = webapp.WSGIApplication(
                    [('/', MainPage),
                     ('/rsvp', Rsvp),
-                    ('/dump', Dump)],
+                    ('/dump', Dump),
+                    ('/csv', DumpCsv)],
                    debug=True)
 
 def main():
