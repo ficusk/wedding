@@ -13,6 +13,14 @@ function init_form() {
   $('.dismiss').click(function() {
     $('#modal-from-dom').modal('hide');
   });
+  
+  $('select#which').change(function() {
+    if ($('select#which').val() == "no") {
+      $('select#guests').parents('.clearfix').hide();
+    } else {
+      $('select#guests').parents('.clearfix').show();
+    }
+  });
 }
 
 function reset_form() {
