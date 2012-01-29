@@ -5,6 +5,9 @@ function init_form() {
   $('#modal-from-dom').bind('show', function() {
     reset_form();
   });
+  $('#modal-from-dom').bind('shown', function() {
+    $('input#name').focus();
+  });
 
   $('.submit').click(handle_form_submit);
   $('.dismiss').click(function() {
