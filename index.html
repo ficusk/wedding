@@ -67,19 +67,19 @@
               toward the southeast corner of the park and will start at 2:30pm, rain or shine.
             </p>
             <p>
-              We are not obtaining permits for use of the park, a cake, folding chairs,
-              ushers, or any of the usual trappings. It's just going to be an informal
+              We are not obtaining a permit for use of the park, a cake, folding chairs,
+              ushers, or any of the usual trappings. It's going to be an informal
               gathering, and all are welcome to attend. Please be on time. We aren't going
               to wait.
             </p>
             <p>
-              Afterward, we'll head over to
-              <a href="http://greenchilekitchen.com/">Green Chile Kitchen</a>, a
-              few blocks away at McAllister &amp; Baker for snacks, drinks, and chairs.
+              Afterward, we'll head a few blocks over to
+              <a href="http://greenchilekitchen.com/">Green Chile Kitchen</a>
+              at McAllister &amp; Baker for snacks, drinks, and chairs.
             </p>
             <p>
               In lieu of the traditional reception, we will be holding a
-              <a href="#" rel="popover" title="No entry without costume.">costume</a> party
+              <a href="#" rel="popover" title="No entry without costume.">costume party</a>
               later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
               after which the venue will open to the public with dance music.
               <script>
@@ -97,6 +97,7 @@
                 })
               </script>
             </p>
+            <br>
             <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn large primary">RSVP</button>
           </div>
           <div id="map_canvas" class="span6" style="width: 340px; height: 340px">
@@ -123,19 +124,19 @@
               <div class="clearfix">
                 <label for="name">Name</label>
                 <div class="input">
-                  <input class="xlarge" id="name" name="name" size="30" type="text">
+                  <input class="xlarge disable-on-submit" id="name" name="name" size="30" type="text">
                 </div>
               </div>
               <div class="clearfix">
                 <label for="email">Email</label>
                 <div class="input">
-                  <input class="xlarge" id="email" name="email" size="30" type="text">
+                  <input class="xlarge disable-on-submit" id="email" name="email" size="30" type="text">
                 </div>
               </div>
               <div class="clearfix">
                 <label for="which">Attending?</label>
                 <div class="input">
-                  <select name="which" id="which">
+                  <select name="which" id="which" class="disable-on-submit">
                     <option value="no">Sorry, I can't attend</option>
                     <option value="party" selected>The costume party</option>
                     <option value="ceremony">The ceremony</option>
@@ -146,7 +147,7 @@
               <div class="clearfix">
                 <label for="guests">Guests?</label>
                 <div class="input">
-                  <select name="guests" id="guests">
+                  <select name="guests" id="guests" class="disable-on-submit">
                     <option value="1" selected>Just me</option>
                     <option value="2">One guest</option>
                     <option value="3">Two guests</option>
@@ -160,7 +161,7 @@
         </div>
         <div class="modal-footer">
           <div id="submit_pre" class="footer-section">
-            <button class="btn primary submit">Submit</button>
+            <button class="btn primary submit disable-on-submit">Submit</button>
           </div>
           <div id="submit_success_yes" class="footer-section">
             <p>
@@ -181,7 +182,7 @@
               <span class="label important">Error</span>
               <b>Your RSVP could not be recorded.</b> Please try again.
             </p>
-            <button class="btn primary submit">Try again</button>
+            <button class="btn primary submit disable-on-submit">Try again</button>
           </div>
         </div>
       </div>

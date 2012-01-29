@@ -18,6 +18,7 @@ function init_form() {
 function reset_form() {
   $('.footer-section').hide();
   $('#submit_pre').show();
+  $('.disable-on-submit').removeAttr('disabled');
 }
 
 function handle_form_submit() {
@@ -29,6 +30,8 @@ function handle_form_submit() {
   if (!validate_form(name, email, guests)) {
     return false;
   }
+  
+  $('.disable-on-submit').attr('disabled', 'disabled');
   
   // Wrap it all up and submit it.
   var formData = 'name=' + name + '&email=' + email
@@ -48,6 +51,7 @@ function handle_form_submit() {
     error: function() {
       $('.footer-section').hide();
       $('#submit_error').show();
+      $('.disable-on-submit').removeAttr('disabled');
     },
   });
 }
