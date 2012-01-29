@@ -1,10 +1,12 @@
 Add submit time to datastore
+Party checkbox in RSVP form
+No gifts
+Fill out all lorem ipsum / response state text
 
 Build admin handler
 - Show responses
  - group by duplicate email, highlight
 - Download csv export of all rows
 
-Party page
 
 
