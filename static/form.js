@@ -18,6 +18,7 @@ function init_form() {
 function handle_form_submit() {
   var name = $('input#name').val();
   var email = $('input#email').val();
+  var which = $('select#which').val();
   var guests = $('select#guests').val();
 
   if (!validate_form(name, email, guests)) {
@@ -25,7 +26,8 @@ function handle_form_submit() {
   }
   
   // Wrap it all up and submit it.
-  var formData = 'name=' + name + '&email=' + email + '&guests=' + guests;
+  var formData = 'name=' + name + '&email=' + email
+      + '&which=' + which + '&guests=' + guests;
   $.ajax({
     type: "POST",
     url: "/rsvp",

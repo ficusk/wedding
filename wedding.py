@@ -15,7 +15,9 @@ class MainPage(webapp.RequestHandler):
 class RsvpEntry(db.Model):
   name = db.StringProperty()
   email = db.StringProperty()
+  which = db.StringProperty()
   guests = db.IntegerProperty()
+  submit_time = db.DateTimeProperty(auto_now=True)
   pass
 
 class Rsvp(webapp.RequestHandler):
@@ -24,6 +26,7 @@ class Rsvp(webapp.RequestHandler):
     entry = RsvpEntry()
     entry.name = self.request.get('name')
     entry.email = self.request.get('email')
+    entry.which = self.request.get('which')
     entry.guests = int(self.request.get('guests'))
     entry.put()
 

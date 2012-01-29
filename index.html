@@ -41,10 +41,6 @@
             <a href="http://g.co/maps/edy84">Alamo Square</a>
           </h4>
           <h5>San Francisco, CA</h5>
-          <!-- <br>
-          <p>
-            <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding&dates=20120504T213000Z/20120504T233000Z&details=&location=Alamo%20Square%20Park%2C%20San%20Francisco%2C%20CA&trp=false&sprop=http%3A%2F%2Fwedding.bethandfic.us%2F&sprop=name:Beth%20%26%20Ficus's%20wedding" target="_blank"><img src="http://www.google.com/calendar/images/ext/gc_button6.gif" alt="0" border="0"></a>
-          </p> -->
         </div>
       </div>
       
@@ -118,15 +114,25 @@
                 </div>
               </div>
               <div class="clearfix">
-                <label for="guests">Attending?</label>
+                <label for="which">Attending?</label>
+                <div class="input">
+                  <select name="which" id="which">
+                    <option value="no">Sorry, I can't attend</option>
+                    <option value="party" selected>The costume party</option>
+                    <option value="ceremony">The ceremony</option>
+                    <option value="both">Both</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix">
+                <label for="guests">Guests?</label>
                 <div class="input">
                   <select name="guests" id="guests">
-                    <option value="0">Sorry, I can't attend</option>
-                    <option value="1" selected>Yes, by myself</option>
-                    <option value="2">Yes, with one guest</option>
-                    <option value="3">Yes, with two guests</option>
-                    <option value="4">Yes, with three guests</option>
-                    <option value="5">Yes, with four guests</option>
+                    <option value="1" selected>Just me</option>
+                    <option value="2">One guest</option>
+                    <option value="3">Two guests</option>
+                    <option value="4">Three guests</option>
+                    <option value="5">Four guests</option>
                   </select>
                 </div>
               </div>
