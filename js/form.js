@@ -30,20 +30,17 @@ function handle_form_submit() {
 
 function validate_form(name, email, guests) {
   $('*').removeClass('error'); // Remove all error classes
-  $('.help-inline').html(''); // Set all validation errors to empty
 
   var success = true;
   if (name == "") {
     $('input#name').addClass('error');
     $('input#name').parents('.clearfix').addClass('error');
-    $('#name_error').html('Name cannot be empty.');
     success = false;
   }
   
   if (email == "") {
     $('input#email').addClass('error');
     $('input#email').parents('.clearfix').addClass('error');
-    $('#email_error').html('Email address cannot be empty.');
     success = false;
   }
   

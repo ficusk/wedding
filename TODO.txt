@@ -1,5 +1,4 @@
 Add submit time to datastore
-Remove error helper text; just red
 
 Build admin handler
 - Show responses
