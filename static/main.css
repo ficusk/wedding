@@ -15,7 +15,13 @@ a.quiet {
   text-decoration: none;
 }
 
-.content.well {
+button.rsvp {
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.main-block {
   background: white;
   border: none;
 }
