@@ -10,7 +10,8 @@
     <script type="text/javascript">
       $(function() {
         var alamoSq = new google.maps.LatLng(37.776384, -122.434709);
-        $('#map_canvas').gmap({center: alamoSq, zoom: 14});
+        $('#map_canvas').gmap({center: alamoSq, zoom: 16});
+        var $marker = $('#map_canvas').gmap('addMarker', {position: '37.776060, -122.433760'});
         init_form();
       })
     </script>
