@@ -13,17 +13,11 @@
       $(function() {
         var alamo = new google.maps.LatLng(37.776384, -122.434709);
         var ceremony = new google.maps.LatLng(37.776060, -122.433760);
-        var minna = new google.maps.LatLng(37.78743,	-122.39938);
         $('#map_canvas').gmap({center: alamo, zoom: 16});
         $('#map_canvas').gmap('addMarker', {position: ceremony});
-        $('#map_canvas').gmap('addMarker', {position: minna});
 
         $('#alamo').click(function() {
           $('#map_canvas').gmap('get', 'map').panTo(alamo);
-          return false;
-        });
-        $('#minna').click(function() {
-          $('#map_canvas').gmap('get', 'map').panTo(minna);
           return false;
         });
         
@@ -51,7 +45,7 @@
           <h4><a href="http://g.co/maps/edy84">Alamo Square</a></h4>
           <h6>and</h6>
           <h5>8:00 PM</h5>
-          <h4><a href="http://www.111minnagallery.com/">111 Minna</a></h4>
+          <h4>Location TBD</h4>
           <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn large primary rsvp">RSVP</button>
         </div><!--/sidebar-->
       
@@ -76,8 +70,8 @@
           <p>
             In lieu of the traditional reception, we will be holding an adults-only (21+)
             <a href="#" rel="popover" title="No entry without costume.">costume party</a>
-            later in the evening at 111 Minna. It will be a private party from 8pm-11pm,
-            after which the venue will open to the public with dance music.
+            later in the evening. We'll have full details soon, but the venue will be in
+            San Francisco and the party will start around 8pm.
             <script>
               $(function () {
                 $("a[rel=popover]")
@@ -103,12 +97,10 @@
               can make it, but the celebration is the most important thing to us. We hope all of you can make
               it to the party. <u><i>In costume</i></u>.
             </p>
-            <small>Beth &amp Ficus</small>
+            <small>Beth &amp; Ficus</small>
           </blockquote>
           <div>
             <a href="#" id="alamo">Alamo Square</a>
-            |
-            <a href="#" id="minna">111 Minna</a>
           </div>
 
           <div id="map_canvas" style="width: 340px; height: 340px"></div>
@@ -173,7 +165,7 @@
             <ul>
               <li>Add the wedding to your <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding&dates=20120504T213000Z/20120504T233000Z&details=&location=Alamo%20Square%20Park%2C%20San%20Francisco%2C%20CA&trp=false&sprop=http%3A%2F%2Fwedding.bethandfic.us%2F&sprop=name:Beth%20%26%20Ficus's%20wedding" target="_blank">Google Calendar</a>
             or save an <a href="static/wedding.ics">iCal event</a>.
-              <li>Add the party to your <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding%20-%20costume%20party&dates=20120505T030000Z/20120505T060000Z&details=&location=111%20Minna%2C%20San%20Francisco%2C%20CA&trp=false&sprop=&sprop=name:" target="_blank">Google Calendar</a> or save an <a href="static/party.ics">iCal event</a>.
+              <li>Add the party to your <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=Beth%20%26%20Ficus's%20wedding%20-%20costume%20party&dates=20120505T030000Z/20120505T060000Z&details=&location=&trp=false&sprop=&sprop=name:" target="_blank">Google Calendar</a> or save an <a href="static/party.ics">iCal event</a>.
             </ul>
           </p>
           <button class="btn primary dismiss">Done</button>
