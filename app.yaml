@@ -4,9 +4,6 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /
-  script: wedding.py
-
 - url: /static
   static_dir: static
 
@@ -14,3 +11,5 @@ handlers:
   script: wedding.py
   login: admin
 
+- url: /.*
+  script: wedding.py
