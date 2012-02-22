@@ -64,8 +64,6 @@ def get_annotated_rsvps():
   # fetch all records, sorted by descending submit time
   rsvp_query = RsvpEntry.all().order('-submit_time')
   all_rsvps = [r for r in rsvp_query]
-  # collate by email
-  all_rsvps = sorted(all_rsvps, key=attrgetter('email'))
 
   seen_email = {}
   pacific_time = Pacific_tzinfo()
